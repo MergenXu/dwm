@@ -10,12 +10,13 @@ static const unsigned int gappov    = 10;       /* vert outer gap between window
 static const int smartgaps          = 0;        /* 1 means no outer gap when there is only one window */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
+static const Bool viewontag         = True;     /* Switch view on tag switch */
 static const int focusonwheel       = 0;
 static const char *fonts[]          = {"PragmataPro Liga:size=11","Noto Emoji:size=11" ,"Noto Sans Mono CJK SC:size=10" };
 static const char dmenufont[]       = "PragmataPro Liga:size=11";
 static const char col_gray1[]       = "#1e222a";
 static const char col_gray2[]       = "#444444";
-static const char col_gray3[]       = "#bbbbbb";
+static const char col_gray3[]       = "#c8ccd4";
 static const char col_gray4[]       = "#eeeeee";
 static const char col_cyan[]        = "#005577";
 static const char *colors[][3]      = {
@@ -89,9 +90,11 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 	{ MODKEY,                       XK_s,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
-	{ MODKEY,                       XK_g,  togglescratch,  {.v = scratchpadcmd } },
+	{ MODKEY,                       XK_r,  	   togglescratch,  {.v = scratchpadcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY|ShiftMask,             XK_b,      hideborder,     {0} },
+	{ MODKEY|ShiftMask,             XK_n,      rotatestack,    {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_e,      rotatestack,    {.i = -1 } },
 	{ MODKEY,                       XK_n,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_e,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_l,      incnmaster,     {.i = +1 } },
